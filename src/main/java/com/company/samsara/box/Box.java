@@ -1,6 +1,5 @@
 package com.company.samsara.box;
 
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.PriorityQueue;
@@ -28,46 +27,62 @@ public class Box {
   private Map<Integer, Valuable> contentMap;
 
   public Box(int sizeBar) {
-    if(sizeBar <= 0) {
-      throw new IllegalArgumentException("Size bar of a box cannot be smaller thant or equal to zero");
+    if (sizeBar <= 0) {
+      throw new IllegalArgumentException(
+          "Size bar of a box cannot be smaller thant or equal to zero");
     }
     this.sizeBar = sizeBar;
     this.currentSize = 0;
-    maxValuables = new PriorityQueue<>((a,b)->(b.size - a.size));
+    maxValuables = new PriorityQueue<>((a, b) -> (b.size - a.size));
     contentMap = new HashMap<>();
   }
 
   public void addValuable(Valuable valuable) {
-    if(valuable == null) {
+    if (valuable == null) {
       throw new IllegalArgumentException("added valuable cannot be null");
     }
 
-    if(contentMap.containsKey(valuable.id)) {
+    if (contentMap.containsKey(valuable.id)) {
       throw new IllegalArgumentException("valuable is already in the box");
     }
 
-    if(currentSize + valuable.size > sizeBar) {
-      throw new IllegalArgumentException(String.format("adding this valuable with size %d will exceeds the box' size bar %d", valuable.size, sizeBar));
+    if (currentSize + valuable.size > sizeBar) {
+      throw new IllegalArgumentException(
+          String.format(
+              "adding this valuable with size %d will exceeds the box' size bar %d",
+              valuable.size, sizeBar));
     }
 
     contentMap.put(valuable.id, valuable);
     maxValuables.offer(valuable);
     currentSize += valuable.size;
-    System.out.println("Added " + valuable.toString() + ", current box size: " + currentSize + " maxValueSize: " + getMaxValuableSize());
+    System.out.println(
+        "Added "
+            + valuable.toString()
+            + ", current box size: "
+            + currentSize
+            + " maxValueSize: "
+            + getMaxValuableSize());
   }
 
   public void removeValuable(int id) {
-    if(!contentMap.containsKey(id)) {
+    if (!contentMap.containsKey(id)) {
       throw new IllegalArgumentException("valuable is no in the box");
     }
     Valuable removed = contentMap.remove(id);
     maxValuables.remove(removed);
     currentSize -= removed.size;
-    System.out.println("Removed " + removed.toString() + ", current box size: " + currentSize + " maxValueSize: " + getMaxValuableSize());
+    System.out.println(
+        "Removed "
+            + removed.toString()
+            + ", current box size: "
+            + currentSize
+            + " maxValueSize: "
+            + getMaxValuableSize());
   }
 
   public int getMaxValuableSize() {
-    if(maxValuables.isEmpty()) {
+    if (maxValuables.isEmpty()) {
       return 0;
     } else {
       return maxValuables.peek().size;
@@ -84,10 +99,10 @@ public class Box {
     Valuable v9 = new Valuable(6, "valuable 9", 9);
 
     Box aBox = new Box(30);
-    try{
+    try {
       aBox.addValuable(v1);
       aBox.addValuable(v10);
-//      aBox.addValuable(v20);
+      //      aBox.addValuable(v20);
       aBox.removeValuable(v10.id);
       aBox.addValuable(v29);
       aBox.removeValuable(v29.id);
@@ -97,33 +112,6 @@ public class Box {
     } catch (IllegalArgumentException e) {
       System.out.println(e.getMessage());
     }
-
   }
-
 }
-
-class Valuable {
-  int id;
-  String name;
-  int size;
-
-  public Valuable(int id, String name, int size) {
-    if(StringUtils.isBlank(name)) {
-      throw new IllegalArgumentException("Valuabe cannot be blank");
-    }
-    if(size <= 0) {
-      throw new IllegalArgumentException("Valuabe size cannot be smaller than or equal to 0");
-    }
-    this.id = id;
-    this.name = name;
-    this.size = size;
-  }
-
-  @Override
-  public String toString() {
-    return "[id = " + id + ", name = " + name + ", size = " + size + "]";
-  }
-
-}
-
 
