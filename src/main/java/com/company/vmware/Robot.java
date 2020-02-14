@@ -71,11 +71,11 @@ import java.util.LinkedList;
  * High level: Use 4 stacks to keep track on robot's coordinate X and Y's position history and move
  * history respectively. So the above example looks like the following with 4 stacks:
  *
- * <p>X  [0  2 3 3 5 5
+ * <p>X [0 2 3 3 5 5
  *
- * <p>dX [0  2 1 0 2 0
+ * <p>dX [0 2 1 0 2 0
  *
- * <p>Y  [5  1 1 2 2 2
+ * <p>Y [5 1 1 2 2 2
  *
  * <p>dY [0 -4 0 1 0 0
  */
