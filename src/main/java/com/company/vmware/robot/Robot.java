@@ -1,4 +1,4 @@
-package com.company.vmware;
+package com.company.vmware.robot;
 
 import java.util.LinkedList;
 
