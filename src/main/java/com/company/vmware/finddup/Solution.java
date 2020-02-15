@@ -32,7 +32,7 @@ class Solution {
   }
 
   private void mapAndGroup(Map<String, List<String>> map, String[] s) {
-    String dir = s[0];\
+    String dir = s[0];
     for (int i = 1; i < s.length; i++) {
       String[] metaData = s[i].split("\\(");
       String fileName = metaData[0];
