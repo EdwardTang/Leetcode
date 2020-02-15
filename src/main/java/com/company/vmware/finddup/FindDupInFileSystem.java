@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 /** Leetcode 609. Find Duplicate File in System */
-class Solution {
+class FindDupInFileSystem {
   // High level:
   // 1. split the string into: pair of <content : dir + fileName>
   // 2. use content as key, group all the pair into a hashmap:  Map<content, List <dir + fileName>>

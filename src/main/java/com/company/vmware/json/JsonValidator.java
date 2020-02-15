@@ -1,12 +1,14 @@
 package com.company.vmware.json;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
 
+/**
+ * Validate a json and return true or false.
+ */
 public class JsonValidator {
 
   public static void main(String[] args) {
@@ -53,6 +55,8 @@ public class JsonValidator {
     Deque<Character> stack = new ArrayDeque<>();
     char[] chars = s.toCharArray();
     for (int i = 0; i < chars.length; i++) {
+      // TODO handle numeric values in json
+
       //      if(!stack.isEmpty() && stack.peekLast() == ':') {
       //        if(chars[i] == '"' || chars[i] == '{' || chars[i] == '[' ||
       // Character.isDigit(chars[i])) {
@@ -82,6 +86,8 @@ public class JsonValidator {
       //          return false;
       //        }
       //      } else if(isFocusSymbol(chars[i])) {
+
+      // Handle non-numeric values
       if (isFocusSymbol(chars[i])) {
         if (stack.isEmpty()) {
           stack.addLast(chars[i]);

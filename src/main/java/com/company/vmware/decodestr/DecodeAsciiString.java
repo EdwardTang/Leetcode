@@ -1,11 +1,28 @@
 package com.company.vmware.decodestr;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-public class Main {
+/**
+ * We encode a string, s, by performing the following sequence of actions:
+ *
+ * <p>Replace each character with its ASCII value representation. Reverse the string. For example,
+ * the table below shows the conversion from the string "Go VMWare" to the ASCII string
+ * "711113286778797114101":
+ *
+ * <p>Character G o V M W a r e ASCII Value 71 111 32 86 77 87 97 114 101
+ *
+ * <p>We then reverse the ASCII string to get the encoded string 101411797877682311117. For
+ * reference, the characters in s are ASCII characters within the range 10 - 126 which include
+ * special characters. The function must decode the encoded string and return the list of ways in
+ * which s can be decoded.
+ *
+ * <p>// encoded - A reversed ASCII string denoting an encoded string s static Collection<String>
+ * decode(String encoded) {
+ *
+ * <p>return Collection<String> }
+ */
+public class DecodeAsciiString {
   public static List decode(String encoded) {
     List<String> ans = new ArrayList<>();
 
