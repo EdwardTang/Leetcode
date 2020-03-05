@@ -9,6 +9,8 @@ import java.util.Deque;
 public class ValidStackSequence {
 
   /**
+   * LeetCode 946: Valid Stack Sequence
+   *
    * C:
    * <p>What is the data type of input and output? array and boolean?</p>
    * <p>What if we meet a null as input? </p>
