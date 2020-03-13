@@ -62,7 +62,7 @@ public class MaxDistinctElements {
     return maxHeap.size();
   }
 
-  public static void main(String args[]) {
+  public static void main(String[] args) {
     int[] arr1 = {5, 7, 5, 5, 1, 2, 2};
     int k1 = 3;
     int[] arr2 = {1, 2, 3, 4, 5, 6, 7};
